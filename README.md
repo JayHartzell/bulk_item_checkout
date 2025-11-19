@@ -4,7 +4,7 @@ A cloud app for Ex Libris Alma that enables batch checkout of items to users.
 
 ## Description
 
-This application allows library staff to perform bulk checkouts by uploading a file containing user identifiers and item barcodes. The app processes each checkout sequentially and provides real-time feedback on success or failure for each transaction.
+This application allows library staff to perform bulk checkouts by uploading a file containing user primary identifiers and item barcodes. The app processes each checkout sequentially and provides real-time feedback on success or failure for each transaction.
 
 ## Features
 
@@ -44,7 +44,7 @@ studentA,1000345678
 4. **Start Processing** - Click "Start Processing" to begin batch checkouts
 5. **Monitor Progress** - Watch real-time updates as items are processed
 6. **Download Results** (optional) - Click "Download Results" to export a detailed CSV report
-7. **Download Return File** (optional) - Click "Download Return File" to generate a text file of barcodes for bulk check-in
+7. **Download Return File** (optional) - Click "Download Return File" to generate a text file of barcodes for bulk check-in using the Bulk Scan-In Cloud App.
 
 ## Results
 
@@ -60,18 +60,8 @@ The "Download Return File" button generates a plain text file containing only th
 
 ## Technical Requirements
 
-- Ex Libris Alma cloud app environment
-- Valid Alma user credentials with checkout permissions
+- A Circulation Desk Operator Role for the circ desk you want to loan from
 - Items must be loanable and available
-- Users must exist in the system
-
-## Development
-
-Built with:
-- Angular 18
-- Ex Libris Cloud App Angular Library
-- Material Design components
-- XLSX library for file parsing
 
 ## License
 
