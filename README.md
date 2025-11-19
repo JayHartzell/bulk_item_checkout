@@ -61,6 +61,7 @@ The "Download Return File" button generates a plain text file containing only th
 ## Technical Requirements
 
 - A Circulation Desk Operator Role for the circ desk you want to loan from
+- A Cloud App Operator Role to access the application
 - Items must be loanable and available
 
 ## License
