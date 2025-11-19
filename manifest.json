@@ -1,0 +1,16 @@
+{
+   "id": "jayhartzell/bulk_item_checkout",
+   "title": "Bulk Item Checkout",
+   "subtitle": "Batch checkout of items from an xlsx/csv file.",
+   "author": "Jay Hartzell",
+   "icon": {
+      "type": "url",
+      "value": "/assets/checkout_icon.png"
+   },
+   "contentSecurity": {
+      "sandbox": {
+         "downloads": true
+      }
+   },
+   "license" : "https://github.com/JayHartzell/bulk_item_checkout/blob/main/LICENSE"
+}

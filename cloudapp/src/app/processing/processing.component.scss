@@ -1,0 +1,55 @@
+.results-table {
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.table-header {
+  display: flex;
+  padding: 12px 16px;
+  font-weight: 500;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #dcdcdc;
+}
+
+.table-body {
+  background-color: white;
+}
+
+.table-row {
+  display: flex;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+  
+  &:hover {
+    background-color: #fafafa;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.col-icon {
+  width: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.col-user {
+  flex: 0 0 200px;
+  padding-right: 16px;
+}
+
+.col-barcode {
+  flex: 0 0 180px;
+  padding-right: 16px;
+}
+
+.col-status {
+  flex: 1;
+  font-weight: 300;
+  color: #666;
+}

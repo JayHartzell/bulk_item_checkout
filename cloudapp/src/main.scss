@@ -1,0 +1,137 @@
+
+
+@import './app/main/main.component.theme';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+@mixin themed-styles($theme, $typography) {
+    /* Include themed component mixins or theme dependent styles here */
+    @include main-component-theme($theme, $typography);
+}
+
+@mixin global-styles {
+    /* Add global styles here */
+     body {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    // Main titles - H1 (font-weight 500)
+    h1, .main-title {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        color: #000000;
+    }
+
+    // Secondary titles - H2 (font-weight 400)
+    h2, .secondary-title {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        color: #000000;
+    }
+
+    // Running text - light weight (font-weight 300)
+    // Exclude Material button labels to avoid overriding flat button text color
+    // Note: MDC-based Angular Material uses .mdc-button__label for the inner span
+    p,
+    div:not(.mat-mdc-button),
+    span:not(.mdc-button__label),
+    label:not(.mdc-button__label),
+    .running-text {
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
+        color: #000000;
+    }
+
+    // Ensure Material button labels inherit the computed color from the button
+    // This guards against any other global rules that might target spans directly
+    .mat-mdc-button .mdc-button__label {
+        color: inherit !important;
+    }
+
+    // Override Material Typography to follow style guide
+    // Exclude button elements to prevent overriding button text
+    .mat-headline-5:not(.mat-mdc-button) {
+        font-family: 'Roboto', sans-serif !important;
+        font-weight: 500 !important;  // H1 equivalent
+        color: #000000 !important;
+    }
+
+    .mat-headline-6:not(.mat-mdc-button) {
+        font-family: 'Roboto', sans-serif !important;
+        font-weight: 400 !important;  // H2 equivalent
+        color: #000000 !important;
+    }
+
+    .mat-body-1:not(.mat-mdc-button), .mat-body-2:not(.mat-mdc-button) {
+        font-family: 'Roboto', sans-serif !important;
+        font-weight: 300 !important;  // Running text
+        color: #000000 !important;
+    }
+
+    // Global utility classes for spacing
+    // Margins
+    .mt-5 { margin-top: 5px; }
+    .mt-8 { margin-top: 8px; }
+    .mt-10 { margin-top: 10px; }
+    .mt-15 { margin-top: 15px; }
+    .mt-16 { margin-top: 16px; }
+    .mt-20 { margin-top: 20px; }
+    .mt-24 { margin-top: 24px; }
+    .mt-30 { margin-top: 30px; }
+    .mt-50 { margin-top: 50px; }
+
+    .mb-5 { margin-bottom: 5px; }
+    .mb-8 { margin-bottom: 8px; }
+    .mb-10 { margin-bottom: 10px; }
+    .mb-16 { margin-bottom: 16px; }
+    .mb-20 { margin-bottom: 20px; }
+    .mb-24 { margin-bottom: 24px; }
+
+    // Padding
+    .pad-5 { padding: 5px; }
+    .pad-8 { padding: 8px; }
+    .pad-10 { padding: 10px; }
+    .pad-15 { padding: 15px; }
+    .pad-16 { padding: 16px; }
+    .pad-20 { padding: 20px; }
+
+    // Layout utilities
+    .center { text-align: center; }
+    .italic { font-style: italic; }
+    .gap-8 { gap: 8px; }
+    .gap-10 { gap: 10px; }
+    .gap-12 { gap: 12px; }
+    .gap-16 { gap: 16px; }
+
+    // Flex utilities
+    .flex-wrap { display: flex; flex-wrap: wrap; }
+    .button-wrap { display: flex; gap: 10px; flex-wrap: wrap; }
+    .flex-spacer { flex: 1; }
+
+    // Icon button styling per style guide
+    .eca-button {
+        font-size: 16px;
+        color: #4164a4;
+        cursor: pointer;
+        
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+
+    // Tooltip styling for better visibility
+    .mat-mdc-tooltip.custom-tooltip {
+        background-color: #333 !important;
+        color: #fff !important;
+        font-size: 12px !important;
+    }
+}
+
+
+.eca-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 0 16px;
+}
+
+

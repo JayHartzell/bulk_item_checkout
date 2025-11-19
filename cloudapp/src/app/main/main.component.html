@@ -1,0 +1,2 @@
+<app-upload *ngIf="!items" (fileProcessed)="onFileProcessed($event)"></app-upload>
+<app-processing *ngIf="items" [items]="items" [config]="config" (back)="onBack()"></app-processing>

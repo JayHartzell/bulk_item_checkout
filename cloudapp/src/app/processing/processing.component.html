@@ -1,0 +1,51 @@
+<div class="eca-actions">
+  <button mat-flat-button color="secondary" (click)="back.emit()" [disabled]="isProcessing">Back</button>
+  <button mat-flat-button color="primary" (click)="process()" [disabled]="isProcessing || items.length === 0" *ngIf="processedCount === 0">Start Processing</button>
+  <button mat-flat-button color="warn" (click)="cancelProcessing()" *ngIf="isProcessing">Cancel Processing</button>
+  <button mat-stroked-button (click)="downloadReturnFile()" [disabled]="successCount === 0" *ngIf="processedCount > 0 && !isProcessing">
+    <i class="bi bi-file-earmark-text" style="margin-right: 4px;"></i>
+    Download Return File
+  </button>
+  <button mat-flat-button color="accent" (click)="download()" [disabled]="processedCount === 0">Download Results</button>
+</div>
+
+<div class="container">
+  <h2>Processing {{items.length}} items</h2>
+  
+  <!-- Progress Bar -->
+  <div style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+      <span><strong>Progress:</strong> {{processedCount}} / {{items.length}} ({{progressPercentage | number:'1.0-0'}}%)</span>
+      <span *ngIf="isProcessing"><strong>ETA:</strong> {{estimatedTimeRemaining}}</span>
+    </div>
+    <mat-progress-bar mode="determinate" [value]="progressPercentage" color="primary"></mat-progress-bar>
+  </div>
+  
+  <div class="summary" style="margin-bottom: 20px;">
+    <span style="margin-right: 15px;">Processed: <strong>{{processedCount}} / {{items.length}}</strong></span>
+    <span style="margin-right: 15px; color: green;">Success: <strong>{{successCount}}</strong></span>
+    <span style="color: red;">Errors: <strong>{{errorCount}}</strong></span>
+  </div>
+
+  <div class="results-table">
+    <div class="table-header">
+      <div class="col-icon"></div>
+      <div class="col-user">User</div>
+      <div class="col-barcode">Item Barcode</div>
+      <div class="col-status">Status</div>
+    </div>
+    
+    <div class="table-body" style="max-height: 500px; overflow-y: auto;">
+      <div class="table-row" *ngFor="let item of items">
+        <div class="col-icon">
+          <i class="bi bi-check-circle-fill" *ngIf="item.status === 'success'" style="color: green; font-size: 1.2rem;"></i>
+          <i class="bi bi-exclamation-circle-fill" *ngIf="item.status === 'error'" style="color: red; font-size: 1.2rem;"></i>
+          <i class="bi bi-clock" *ngIf="item.status === 'pending'" style="font-size: 1.2rem;"></i>
+        </div>
+        <div class="col-user">{{item.primaryId}}</div>
+        <div class="col-barcode">{{item.barcode}}</div>
+        <div class="col-status">{{item.message}}</div>
+      </div>
+    </div>
+  </div>
+</div>
